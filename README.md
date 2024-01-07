@@ -1,4 +1,4 @@
-# config_debian-i3
+# Debian i3wm desktop
 my daily Debian i3 desktop setup.
 
 
