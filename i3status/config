@@ -1,0 +1,52 @@
+# i3 status config file
+# by 42web
+# v1.0, 07.01.2024, release
+
+general {
+  colors = true
+  color_good = "#40a02b"
+  color_degraded = "#df8e1d"
+  color_bad = "#d20f39"
+  interval = 1
+}
+
+order += "cpu_usage"
+order += "memory"
+order += "disk /"
+order += "ethernet enp0s5"
+order += "volume master"
+order += "time"
+
+disk "/" {
+  format = "/: %avail avail"
+  low_threshold = 10
+  format_below_threshold = "Warning: %percentage_avail avail"
+}
+
+cpu_usage {
+  format = "CPU: %usage"
+  degraded_threshold = 50
+  max_threshold = 80
+}
+
+ethernet enp0s5 {
+  format_up = "ETH: %ip"
+  format_down = "ETH: down"
+}
+
+memory {
+        memory_used_method = memavailable
+    format = "Memory: %percentage_used"
+        threshold_degraded = 20%
+    threshold_critical = 10%
+}
+
+time {
+  format= "%W, %d.%m.%Y - %H:%M:%S"
+}
+
+volume master {
+        format = "VOL: %volume"
+        format_muted = "VOL: muted (%volume)"
+        device = "pulse"
+}
